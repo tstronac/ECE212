@@ -1,0 +1,38 @@
+.global _start
+_start:
+array:
+    .word   12
+    .word   11
+    .word   8
+    .word   7
+    .word   4
+    .word   1
+
+
+
+array2:
+    .word   6
+    .word   5
+    .word   4
+    .word   3
+    .word   2
+    .word   1
+
+
+
+movs r6,#0x00
+movt r6,#0x0002 
+movs r5,#0x00
+ldr r3,=array2
+ldr r1,=array
+
+mov r2,#0x01
+
+REPEAT:
+ldr r4,[r1], #4
+ldr r6,[r3], #4
+LSRS r4,r2
+CMP r4,r6
+ADDEQ R5,#0x01
+cmp r5,#0x02
+BNE REPEAT
