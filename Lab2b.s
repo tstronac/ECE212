@@ -1,4 +1,4 @@
-/*Author - Wing Hoy. Last edited on Feb 12, 2021 */
+
 /*-----------------DO NOT MODIFY--------*/
 .global TestAsmCall
 .global printf
