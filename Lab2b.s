@@ -34,24 +34,17 @@ ldr r5, [r0, #4]
 add r0,#0x04
 //incriment r0,r1 for the next value
 
-
-
 add r6,r4,r5
 
 ldr r4, [r1]
 ldr r5, [r1, #4]
 add r1,#0x04
-//Determine if Delta X is 1, 2, 4
 
+//ΔX x (Yk+Yk+1)
 sub r5,r4
-
-
 MUL r6,r5
 
-//cmp r5,#2
-//LSL r5,r6,#2
 //a running sum of the area
-
 ldr r7,[r2]
 add r7,r6
 str r7,[r2]
