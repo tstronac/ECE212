@@ -1,6 +1,6 @@
 .global _start
 _start:
-/*ran on https://cpulator.01xz.net/?sys=arm*/
+/*.equ BLOCK, 0x20000000*/
 
 Movw R0, #0x0
 movw R1, #0xFFFF
@@ -34,6 +34,7 @@ movw R6, #0x0E
 	
 //Note: the address isnt the same as the assignment. subtract 0x50, divide by 2 and add 0x20000000 
 // any operation with r1 will subsequently be off. but it is still helpful in figureing out the right answer
+//check that the data is in the right order!!!!!!
 .data
 BLOCK:
 .word 0x00 
