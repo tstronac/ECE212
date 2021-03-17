@@ -1,0 +1,54 @@
+.global _start
+_start:
+/*ran on https://cpulator.01xz.net/?sys=arm*/
+
+Movw R0, #0x0
+movw R1, #0xFFFF
+movT r1, #0xFFFF
+movw R2, #0x02
+movw R3, #0x03
+movw R4, #0x04
+movw R5, #0x05
+movw R6, #0x0E 
+
+
+	Movs r0, r1,ASR #0x02
+	Mvns r1, #0x0f
+	ldr r2, =0x00000050
+
+
+	
+	ldr r4, [r2, #32]
+	ldr r5, [r2], #16
+	ldrsb r3, [r2,#-8]!
+	Str r4,  [r2, #16]
+	subs r6, #0x0F
+	ANDS r4,r3
+	ORRS r3,r2
+	EORS r2,r1
+	BICS r1,r0
+	Mvns r5, #0x0
+	ORRS r0,r5
+	
+	
+	
+//Note: the address isnt the same as the assignment. subtract 0x50, divide by 2 and add 0x20000000 
+// any operation with r1 will subsequently be off. but it is still helpful in figureing out the right answer
+.data
+BLOCK:
+.word 0x00 
+.word 0x01
+.word 0x02
+.word 0x1F
+.word 0xAA 
+.word 0xBB
+.word 0xCC 
+.word 0xDD
+.word 0xEE
+.word 0xFF
+.word 0x22 
+.word 0x33
+.word 0x44
+.word 0x55
+.word 0x66
+.word 0x77
