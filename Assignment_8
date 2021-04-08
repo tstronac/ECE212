@@ -1,0 +1,42 @@
+.global _start
+_start:
+.equ address, 0x00000028	
+	
+mov r5, #0 //odd counter
+mov r6, #20 // loop counter, prolly the length of the array
+ldr  r7, =address // address of array
+
+
+main_loop:
+	ldr r0, [r7], #4
+	LSRS r0, #1
+	addcs r5, #1 
+	subs r6, #1
+	BEQ end 
+	b main_loop
+
+end:
+
+
+
+.data
+.word 0x11111111
+.word 0x22222223
+.word 0xbbbbbbb3
+.word 0x11111111
+.word 0x22222223
+.word 0xbbbbbbb3
+.word 0x11111111
+.word 0x22222223
+.word 0xbbbbbbb3
+.word 0x11111111
+.word 0x22222223
+.word 0xbbbbbbb3
+.word 0x11111111
+.word 0x22222223
+.word 0xbbbbbbb3
+.word 0x11111111
+.word 0x22222223
+.word 0xbbbbbbb3
+.word 0x11111111
+.word 0x22222223
