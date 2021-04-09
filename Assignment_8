@@ -1,10 +1,9 @@
 .global _start
 _start:
-.equ address, 0x00000028	
 	
 mov r5, #0 //odd counter
-mov r6, #20 // loop counter, prolly the length of the array
-ldr  r7, =address // address of array
+mov r6, #20 // loop counter,the length of the array
+ldr  r7, =0x00000028 // address of array, generically chosen 
 
 
 main_loop:
